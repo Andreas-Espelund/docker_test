@@ -20,9 +20,9 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_REPO: sandbox
+          DOCKER_REPO: "sandbox"
           IMAGE_TAG: latest
         run: |
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
           docker buildx create --use
-          docker buildx build --platform linux/amd64 -t $DOCKER_REPO:$client --push .
+          docker buildx build --platform linux/amd64 -t $DOCKER_REPO:client --push .
