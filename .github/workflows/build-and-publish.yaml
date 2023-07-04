@@ -13,6 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Copy Dockerfile to build context
+        run: cp Dockerfile $GITHUB_WORKSPACE
+
+      - name: Kødde litt
+        run: echo "Åløøøø"
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
